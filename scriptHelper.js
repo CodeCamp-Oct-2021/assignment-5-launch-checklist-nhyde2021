@@ -28,25 +28,48 @@ function validateInput(testInput) {
 };
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-  let pilotValidation = validateInput(pilot);
-  if (pilotValidation !== 'Is not a Number') {
-      alert(pilot + ' ' + pilotValidation);
-  };
-   let copilotValidation = validateInput(copilot);
-   if (copilotValidation !== 'Is not a Number') {
-       alert(copilot + ' ' + copilotValidation);
-   };
-   let fuelLevelValidation = validateInput(fuelLevel);
-   if (fuelLevelValidation !== 'Is a Number') {
-       alert(fuelLevel + ' ' + fuelLevelValidation);
-   };
-   let cargoMassValidation = validateInput(cargoLevel);
-   if (cargoMassValidation !== 'Is a Number') {
-       alert(cargoLevel + ' ' + cargoMassValidation);
-   };
-   
-   
-}
+
+    let launchStatus = document.getElementById("launchStatus")
+    let pilotStatus = document.getElementById("pilotStatus");
+    let copilotStatus = document.getElementById("copilotStatus");
+    let fuelStatus = document.getElementById("fuelStatus");
+    let cargoStatus = document.getElementById("cargoStatus");
+
+    if (pilot === '' || copilot === '' || fuelLevel === '' || cargoLevel === '') {
+        alert('All fields must be filled.');
+    };
+    if (validateInput(pilot) !== 'Is not a Number' || validateInput(copilot) !== 'Is not a Number') {
+        alert('Name Cannot be a number');
+    };
+    if (validateInput(fuelLevel) !== 'Is a Number' || validateInput(cargoLevel) !== 'Is a Number') {
+        alert('Fuel/Cargo Level Must be a number');
+    };
+
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch.`;
+
+    if (fuelLevel < 10000) {
+
+        list.style.visibility = 'visible';
+        fuelStatus.innerHTML = `Not enough fuel for the journey`;
+        launchStatus.style.color = "red";
+        launchStatus.innerHTML = `Not ready for launch`
+    }; 
+    if (cargoLevel > 10000) {
+
+        list.style.visibility = "visible";
+        cargoStatus.innerHTML = `Too much mass for the shuttle to take off`;
+        launchStatus.style.color = "red";
+        launchStatus.innerHTML = `Not ready for launch`
+    }; 
+    if (fuelLevel >= 10000 && cargoLevel <= 10000) {
+
+        list.style.visibility = 'hidden';
+        launchStatus.innerHTML = 'Shuttle ready for launch';
+        launchStatus.style.color = 'green';
+    };
+    
+};
 
 async function myFetch() {
     let planetsReturned;
