@@ -45,28 +45,28 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert('Fuel/Cargo Level Must be a number');
     };
 
-    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
-    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch.`;
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
 
     if (fuelLevel < 10000) {
 
         list.style.visibility = 'visible';
-        fuelStatus.innerHTML = `Not enough fuel for the journey`;
-        launchStatus.style.color = "red";
-        launchStatus.innerHTML = `Not ready for launch`
+        fuelStatus.innerHTML = `Fuel level too low for launch`;
+        launchStatus.style.color = "rgb(199, 37, 78)";
+        launchStatus.innerHTML = `Shuttle Not Ready for Launch`
     }; 
     if (cargoLevel > 10000) {
 
         list.style.visibility = "visible";
-        cargoStatus.innerHTML = `Too much mass for the shuttle to take off`;
-        launchStatus.style.color = "red";
-        launchStatus.innerHTML = `Not ready for launch`
+        cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+        launchStatus.style.color = "rgb(199, 37, 78)";
+        launchStatus.innerHTML = `Shuttle Not Ready for Launch`
     }; 
     if (fuelLevel >= 10000 && cargoLevel <= 10000) {
 
-        list.style.visibility = 'hidden';
-        launchStatus.innerHTML = 'Shuttle ready for launch';
-        launchStatus.style.color = 'green';
+        list.style.visibility = 'visible';
+        launchStatus.innerHTML = 'Shuttle is ready for launch';
+        launchStatus.style.color = 'rgb(65, 159, 106)';
     };
     
 };
