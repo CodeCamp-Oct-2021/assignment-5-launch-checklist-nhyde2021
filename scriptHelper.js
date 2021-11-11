@@ -22,7 +22,7 @@ function validateInput(testInput) {
     } else if (!isNaN(testInput)) {
         return 'Is a Number'
     } else if (isNaN(testInput)) {
-        return 'Is not a Number'
+        return 'Not a Number'
     };
     
 };
@@ -38,7 +38,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (pilot === '' || copilot === '' || fuelLevel === '' || cargoLevel === '') {
         alert('All fields must be filled.');
     };
-    if (validateInput(pilot) !== 'Is not a Number' || validateInput(copilot) !== 'Is not a Number') {
+    if (validateInput(pilot) !== 'Not a Number' || validateInput(copilot) !== 'Not a Number') {
         alert('Name Cannot be a number');
     };
     if (validateInput(fuelLevel) !== 'Is a Number' || validateInput(cargoLevel) !== 'Is a Number') {
@@ -65,7 +65,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if (fuelLevel >= 10000 && cargoLevel <= 10000) {
 
         list.style.visibility = 'visible';
-        launchStatus.innerHTML = 'Shuttle is ready for Launch';
+        launchStatus.innerHTML = 'Shuttle is Ready for Launch';
         launchStatus.style.color = 'rgb(65, 159, 106)';
         fuelStatus.innerHTML = 'Fuel level high enough for launch';
         cargoStatus.innerHTML = 'Cargo mass low enough for launch';
