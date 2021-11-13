@@ -1,11 +1,3 @@
-// const scriptHelper = require('./scriptHelper');
-
-const { pickPlanet } = require("./scriptHelper");
-
-// const { pickPlanet } = require("./scriptHelper");
-
-// const { formSubmission } = require("./scriptHelper");
-
 window.addEventListener("load", function() {
 
     let form = document.querySelector("form");
@@ -41,9 +33,17 @@ window.addEventListener("load", function() {
        console.log(listedPlanets);
    }).then(function () {
        console.log(listedPlanets);
-       // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-   })
+        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+        let randomPlanet = pickPlanet(listedPlanets);
 
-   let randomPlanet = pickPlanet(listedPlanets);
-   
+        addDestinationInfo(
+            document,
+            randomPlanet.name,
+            randomPlanet.diameter,
+            randomPlanet.star,
+            randomPlanet.distance,
+            randomPlanet.moons,
+            randomPlanet.imageUrl
+            );
+   });
 });
