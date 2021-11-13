@@ -43,7 +43,7 @@ window.addEventListener("load", function() {
             randomPlanet.star,
             randomPlanet.distance,
             randomPlanet.moons,
-            randomPlanet.imageUrl
+            randomPlanet.image
             );
    });
 });
